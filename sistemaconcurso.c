@@ -27,7 +27,7 @@ int main() {
 
     do {
         menu();
-        printf("Escolha uma opcao: ");
+        printf("Escolha uma opcao ");
         scanf("%d", &opcao);
         getchar();
 
@@ -40,7 +40,7 @@ int main() {
         } else if (opcao == 0) {
             printf("Encerrando o programa...\n");
         } else {
-            printf("Opcao invalida! Tente novamente.\n");
+            printf("Opcao invalida\n");
         }
 
         printf("\n");
@@ -50,7 +50,7 @@ int main() {
 }
 
 void menu() {
-    printf("===== Menu =====\n");
+    printf("Menu\n");
     printf("1. Cadastrar\n");
     printf("2. Pesquisar\n");
     printf("3. Classificacao\n");
@@ -63,7 +63,7 @@ void cadastrar(Part p[], int *n) {
         return;
     }
 
-    printf("===== Cadastro =====\n");
+    printf("Cadastro\n");
 
     printf("Nome: ");
     fgets(p[*n].nome, sizeof(p[*n].nome), stdin);
@@ -83,7 +83,7 @@ void cadastrar(Part p[], int *n) {
 
     (*n)++;
 
-    printf("Cadastrado com sucesso!\n");
+    printf("Cadastrado!\n");
 }
 
 float media(float notas[]) {
@@ -102,11 +102,11 @@ void verificarAprovacao(Part *p) {
 
 void classificacao(Part p[], int n) {
     if (n == 0) {
-        printf("Nenhum cadastrado!\n");
+        printf("sem registro\n");
         return;
     }
 
-    printf("===== Classificacao =====\n");
+    printf("Classificacao\n");
 
     Part temp;
     for (int i = 0; i < n - 1; i++) {
@@ -122,7 +122,6 @@ void classificacao(Part p[], int n) {
     for (int i = 0; i < n; i++) {
         printf("Posicao: %d\n", i + 1);
         printf("Nome: %s", p[i].nome);
-        printf("Inscricao: %d\n", p[i].inscricao);
         printf("Media: %.2f\n", p[i].media);
         printf("Aprovado: %s\n", p[i].aprovado ? "Sim" : "Nao");
         printf("\n");
@@ -131,18 +130,18 @@ void classificacao(Part p[], int n) {
 
 void pesquisar(Part p[], int n) {
     if (n == 0) {
-        printf("Nenhum cadastrado!\n");
+        printf("sem cadastrado\n");
         return;
     }
 
     int inscricao;
-    printf("Digite a inscricao: ");
+    printf("Qual a inscricao?");
     scanf("%d", &inscricao);
     getchar();
 
     for (int i = 0; i < n; i++) {
         if (p[i].inscricao == inscricao) {
-            printf("===== Participante Encontrado =====\n");
+            printf("registro encontrado\n");
             printf("Nome: %s", p[i].nome);
             printf("Inscricao: %d\n", p[i].inscricao);
             printf("Media: %.2f\n", p[i].media);
@@ -151,5 +150,5 @@ void pesquisar(Part p[], int n) {
         }
     }
 
-    printf("Nao encontrado!\n");
+    printf("nao encontrado\n");
 }
